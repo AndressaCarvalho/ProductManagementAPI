@@ -6,9 +6,6 @@ namespace ProductManagement.Domain.DTOs.Entities
 {
     public class ProductEntityDTO
     {
-        [Key]
-        public int Id { get; set; }
-
         [StringLength(255)]
         [Unicode(false)]
         public string? Description { get; set; }

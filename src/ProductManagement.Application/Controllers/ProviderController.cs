@@ -28,9 +28,7 @@ namespace ProductManagement.Application.Controllers
             {
                 var result = _providerService.Get(skip, take);
 
-                var prov = _mapper.Map<List<ProviderEntityDTO>>(result);
-
-                return Ok(prov);
+                return Ok(result);
             }
             catch (Exception ex)
             {
@@ -48,9 +46,7 @@ namespace ProductManagement.Application.Controllers
             {
                 var result = _providerService.GetById(id);
 
-                var prov = _mapper.Map<ProviderEntityDTO>(result);
-
-                return Ok(prov);
+                return Ok(result);
             }
             catch (Exception ex)
             {
@@ -59,17 +55,19 @@ namespace ProductManagement.Application.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] ProviderEntity provider)
+        public IActionResult Post([FromBody] ProviderEntityDTO provider)
         {
             if (provider == null)
                 return NotFound();
 
             try
             {
-                if (!string.IsNullOrEmpty(provider.Cnpj))
-                    provider.Cnpj = ProviderHelper.RemoveCnpjMask(provider.Cnpj);
+                var prov = _mapper.Map<ProviderEntity>(provider);
 
-                var result = _providerService.Add<ProviderValidator>(provider).Id;
+                if (!string.IsNullOrEmpty(prov.Cnpj))
+                    prov.Cnpj = ProviderHelper.RemoveCnpjMask(prov.Cnpj);
+
+                var result = _providerService.Add<ProviderValidator>(prov).Id;
 
                 return Ok(result);
             }
@@ -95,9 +93,7 @@ namespace ProductManagement.Application.Controllers
 
                 var result = _providerService.Update(provider);
 
-                var prov = _mapper.Map<ProviderEntityDTO>(result);
-
-                return Ok(prov);
+                return Ok(result);
             }
             catch (Exception ex)
             {

@@ -7,9 +7,6 @@ namespace ProductManagement.Domain.DTOs.Entities
 
     public class ProviderEntityDTO
     {
-        [Key]
-        public int Id { get; set; }
-
         [Required]
         [StringLength(255)]
         [Unicode(false)]

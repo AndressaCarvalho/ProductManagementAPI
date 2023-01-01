@@ -27,9 +27,7 @@ namespace ProductManagement.Application.Controllers
             {
                 var result = _productService.Get(skip, take);
 
-                var prod = _mapper.Map<List<ProductEntityDTO>>(result);
-
-                return Ok(prod);
+                return Ok(result);
             }
             catch (Exception ex)
             {
@@ -47,9 +45,7 @@ namespace ProductManagement.Application.Controllers
             {
                 var result = _productService.GetById(id);
 
-                var prod = _mapper.Map<ProductEntityDTO>(result);
-
-                return Ok(prod);
+                return Ok(result);
             }
             catch (Exception ex)
             {
@@ -64,9 +60,7 @@ namespace ProductManagement.Application.Controllers
             {
                 var result = _productService.GetByStatus(status, skip, take);
 
-                var prod = _mapper.Map<List<ProductEntityDTO>>(result);
-
-                return Ok(prod);
+                return Ok(result);
             }
             catch (Exception ex)
             {
@@ -81,9 +75,7 @@ namespace ProductManagement.Application.Controllers
             {
                 var result = _productService.GetByProviderId(providerId, skip, take);
 
-                var prod = _mapper.Map<List<ProductEntityDTO>>(result);
-
-                return Ok(prod);
+                return Ok(result);
             }
             catch (Exception ex)
             {
@@ -92,14 +84,16 @@ namespace ProductManagement.Application.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] ProductEntity product)
+        public IActionResult Post([FromBody] ProductEntityDTO product)
         {
             if (product == null)
                 return NotFound();
 
             try
             {
-                var result = _productService.Add<CreateProductValidator>(product).Id;
+                var prod = _mapper.Map<ProductEntity>(product);
+
+                var result = _productService.Add<CreateProductValidator>(prod).Id;
 
                 return Ok(result);
             }
@@ -122,9 +116,7 @@ namespace ProductManagement.Application.Controllers
             {
                 var result = _productService.Update<UpdateProductValidator>(product);
 
-                var prod = _mapper.Map<ProductEntityDTO>(result);
-
-                return Ok(prod);
+                return Ok(result);
             }
             catch (Exception ex)
             {
