@@ -108,8 +108,7 @@ Cria um novo produto.
 **Parâmetros**
 
 |          Nome | Obrigatoriedade |  Tipo   | Descrição                                                                                                                                                           |
-| -------------:|:--------:|:-------:| --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|     `id` | opcional | int  | Identificador do produto.                                                                     |
+| -------------:|:--------:|:-------:| --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |                                                                     |
 |     `description` | obrigatório | string  | Descrição do produto.
 |     `status` | opcional | bool  | Status do produto (ativo ou inativo).
 |     `manufacturingDate` | obrigatório | datetime  | Data de fabricação do produto.
@@ -170,7 +169,6 @@ Cria um novo fornecedor.
 
 |          Nome | Obrigatoriedade |  Tipo   | Descrição                                                                                                                                                           |
 | -------------:|:--------:|:-------:| --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|     `id` | opcional | int  | Identificador do fornecedor.                                                                     |
 |     `description` | obrigatório | string  | Descrição do fornecedor.
 |     `cnpj` | obrigatório | string  | CNPJ do fornecedor.
 </br>
