@@ -14,7 +14,7 @@ O projeto consiste em uma API para a gestão de produtos, desenvolvida em ASP.NE
     <img src="https://img.shields.io/badge/build-aprovado-brightgreen" />
     <img src="https://img.shields.io/badge/testes-3%20aprovados%2C%200%20falhas-green" />
     <img src="https://img.shields.io/badge/versão-v1.0.0-blue" />
-    <img src="https://img.shields.io/badge/último%20atualização-dezembro%202022-lightblue" />
+    <img src="https://img.shields.io/badge/último%20atualização-janeiro%202022-lightblue" />
     <img src="https://img.shields.io/badge/linguagem-c%23-orange" />
     <img src="https://img.shields.io/badge/plataforma-asp.net%20core-orange" />
     <img src="https://img.shields.io/badge/Inglês%20(USA)-100%25-ff69b4" />
